@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { CommandType } from '../../types/gitCommands';
 
@@ -17,8 +18,16 @@ export const CommandSteps: React.FC<CommandStepsProps> = ({
   onNext,
   onPrev
 }) => {
+  const { t } = useTranslation();
+  
   // Get description for the current step
   const getStepDescription = (command: CommandType, step: number): string => {
+    const stepKey = `${command}.steps.${step}`;
+    return t(stepKey, getDefaultStepDescription(command, step));
+  };
+  
+  // Fallback descriptions in case translations are missing
+  const getDefaultStepDescription = (command: CommandType, step: number): string => {
     const steps: Record<CommandType, string[]> = {
       add: [
         'Files in working directory with changes',
@@ -81,12 +90,12 @@ export const CommandSteps: React.FC<CommandStepsProps> = ({
           }`}
         >
           <ArrowLeft size={16} className="mr-2" />
-          Previous
+          {t('tutorial.previous')}
         </button>
         
         <div className="text-center">
           <div className="text-sm text-slate-400">
-            Step {currentStep + 1} of {totalSteps}
+            {t('tutorial.step', { current: currentStep + 1, total: totalSteps })}
           </div>
           <div className="font-medium mt-1">
             {getStepDescription(command, currentStep)}
@@ -102,7 +111,7 @@ export const CommandSteps: React.FC<CommandStepsProps> = ({
               : 'bg-blue-600 hover:bg-blue-700 text-white'
           }`}
         >
-          Next
+          {t('tutorial.next')}
           <ArrowRight size={16} className="ml-2" />
         </button>
       </div>

@@ -1,12 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { GitBranch, GitCommit, GitCompare, GitMerge, GitPullRequest, UploadCloud, DownloadCloud } from 'lucide-react';
 import { CommandType } from '../../types/gitCommands';
 
 interface CommandOption {
   id: CommandType;
-  label: string;
   icon: React.ReactNode;
-  description: string;
 }
 
 interface GitCommandSelectorProps {
@@ -18,54 +17,42 @@ export const GitCommandSelector: React.FC<GitCommandSelectorProps> = ({
   selectedCommand,
   onSelectCommand
 }) => {
+  const { t } = useTranslation();
+  
   const commands: CommandOption[] = [
     {
       id: 'add',
-      label: 'git add',
-      icon: <GitCommit size={20} />,
-      description: 'Stage changes for commit'
+      icon: <GitCommit size={20} />
     },
     {
       id: 'commit',
-      label: 'git commit',
-      icon: <GitCommit size={20} />,
-      description: 'Save staged changes to history'
+      icon: <GitCommit size={20} />
     },
     {
       id: 'branch',
-      label: 'git branch',
-      icon: <GitBranch size={20} />,
-      description: 'Create and switch branches'
+      icon: <GitBranch size={20} />
     },
     {
       id: 'merge',
-      label: 'git merge',
-      icon: <GitMerge size={20} />,
-      description: 'Combine branch histories'
+      icon: <GitMerge size={20} />
     },
     {
       id: 'push',
-      label: 'git push',
-      icon: <UploadCloud size={20} />,
-      description: 'Upload local to remote'
+      icon: <UploadCloud size={20} />
     },
     {
       id: 'pull',
-      label: 'git pull',
-      icon: <DownloadCloud size={20} />,
-      description: 'Download remote to local'
+      icon: <DownloadCloud size={20} />
     },
     {
       id: 'conflict',
-      label: 'Conflict Resolution',
-      icon: <GitCompare size={20} />,
-      description: 'Resolve merge conflicts'
+      icon: <GitCompare size={20} />
     }
   ];
 
   return (
     <div className="bg-slate-800 rounded-lg p-4 shadow-lg">
-      <h2 className="text-xl font-bold mb-4">Git Commands</h2>
+      <h2 className="text-xl font-bold mb-4">{t('commands.title', 'Git Commands')}</h2>
       
       <div className="space-y-2">
         {commands.map((command) => (
@@ -82,8 +69,8 @@ export const GitCommandSelector: React.FC<GitCommandSelectorProps> = ({
               {command.icon}
             </div>
             <div>
-              <div className="font-mono font-bold">{command.label}</div>
-              <div className="text-sm opacity-80">{command.description}</div>
+              <div className="font-mono font-bold">{t(`commands.${command.id}.label`)}</div>
+              <div className="text-sm opacity-80">{t(`commands.${command.id}.description`)}</div>
             </div>
           </button>
         ))}
