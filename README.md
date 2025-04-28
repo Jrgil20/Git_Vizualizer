@@ -46,26 +46,32 @@ An interactive web application that visually demonstrates Git workflows and comm
 
 4. Open your browser and navigate to http://localhost:5173
 
-## Deploying to GitHub Pages
+## Deployment
 
-1. Update the `vite.config.ts` file to include your repository name as the base path:
+### Deploying to GitHub Pages
 
-   ```ts
-   export default defineConfig({
-     base: '/git-command-visualizer/',
-     // rest of your config
-   })
+El proyecto está configurado para desplegar en GitHub Pages sin interferir con otros despliegues.
+
+1. Ejecuta el siguiente comando para construir y desplegar en GitHub Pages:
    ```
-
-2. Build the project
-   ```
-   npm run build
+   npm run deploy:github
    ```
 
-3. Deploy to GitHub Pages
-   ```
-   npm run deploy
-   ```
+Este comando construye el proyecto con la configuración adecuada para GitHub Pages y luego despliega la carpeta `dist` utilizando el paquete `gh-pages`.
+
+### Deploying to Netlify
+
+El proyecto mantiene compatibilidad con Netlify para despliegue continuo:
+
+1. Conecta tu repositorio a Netlify siguiendo las instrucciones en su plataforma
+2. Configura los siguientes ajustes de despliegue:
+   - Build command: `npm run deploy:netlify`
+   - Publish directory: `dist`
+
+También puedes ejecutar manualmente la construcción para Netlify con:
+```
+npm run deploy:netlify
+```
 
 ## Technologies Used
 
