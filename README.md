@@ -1,83 +1,44 @@
 # Git Command Visualizer
 
-An interactive web application that visually demonstrates Git workflows and commands through animated graphics.
+Una aplicación web interactiva que demuestra visualmente los flujos de trabajo y comandos de Git a través de gráficos animados.
 
-## Features
+## Características
 
-- Interactive visualizations of core Git commands and workflows
-- Step-by-step walkthroughs of Git operations
-- Visual explanations of Git concepts like staging, commits, branches, and more
-- Color-coded elements showing different Git states
-- Hover tooltips with additional information
+- Visualizaciones interactivas de los comandos y flujos de trabajo principales de Git
+- Explicaciones paso a paso de las operaciones de Git
+- Explicaciones visuales de conceptos de Git como staging, commits, ramas y más
+- Elementos con códigos de colores que muestran los diferentes estados de Git
+- Tooltips con información adicional al pasar el cursor
 
-## Git Commands Visualized
+## Comandos Git Visualizados
 
-- `git add` - Staging changes
-- `git commit` - Saving snapshots
-- `git branch` / `git checkout` - Working with branches
-- `git merge` - Combining branches
-- `git push` / `git pull` - Working with remote repositories
-- Conflict resolution process
+- `git add` - Preparación de cambios
+- `git commit` - Guardado de instantáneas
+- `git branch` / `git checkout` - Trabajo con ramas
+- `git merge` - Combinación de ramas
+- `git push` / `git pull` - Trabajo con repositorios remotos
+- Proceso de resolución de conflictos
 
-## Setup for Local Development
+## Documentación
 
-### Prerequisites
+Para información más detallada sobre cómo trabajar con este proyecto, consulta nuestra documentación:
 
-- Node.js (v16+)
-- npm or yarn
+- [Configuración para Desarrollo Local](./docs/development-setup.md)
+- [Guía de Despliegue](./docs/deployment.md)
+- [Guía de Contribución](./docs/contributing.md)
 
-### Installation
-
-1. Clone the repository
-   ```
-   git clone https://github.com/yourusername/git-command-visualizer.git
-   cd git-command-visualizer
-   ```
-
-2. Install dependencies
-   ```
-   npm install
-   ```
-
-3. Start the development server
-   ```
-   npm run dev
-   ```
-
-4. Open your browser and navigate to http://localhost:5173
-
-## Deploying to GitHub Pages
-
-1. Update the `vite.config.ts` file to include your repository name as the base path:
-
-   ```ts
-   export default defineConfig({
-     base: '/git-command-visualizer/',
-     // rest of your config
-   })
-   ```
-
-2. Build the project
-   ```
-   npm run build
-   ```
-
-3. Deploy to GitHub Pages
-   ```
-   npm run deploy
-   ```
-
-## Technologies Used
+## Tecnologías Utilizadas
 
 - React
 - TypeScript
 - Tailwind CSS
 - Vite
+- i18next para internacionalización
 
-## License
+## Licencia
 
-MIT License
+Licencia MIT
 
-## Contributions
+## Contribuciones
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+¡Las contribuciones son bienvenidas! Por favor, consulta nuestra [Guía de Contribución](./docs/contributing.md) para más detalles sobre cómo puedes ayudar a mejorar el proyecto.
