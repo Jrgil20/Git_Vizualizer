@@ -27,6 +27,13 @@ Para información más detallada sobre cómo trabajar con este proyecto, consult
 - [Guía de Despliegue](./docs/deployment.md)
 - [Guía de Contribución](./docs/contributing.md)
 
+## Demo en Línea
+
+Puedes acceder a una versión en vivo del proyecto a través de:
+
+- [GitHub Pages](https://jrgil20.github.io/Git_Vizualizer/)
+- [Netlify](https://gitvizualizer.netlify.app/)
+
 ## Tecnologías Utilizadas
 
 - React
