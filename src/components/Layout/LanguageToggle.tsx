@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Languages } from 'lucide-react';
 
 export const LanguageToggle: React.FC = () => {
   const { i18n } = useTranslation();
 
+  // Sincroniza el idioma actual con localStorage al cargar el componente
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage);
+    }
+  }, [i18n]);
+
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
+    // Guarda la preferencia de idioma en localStorage
+    localStorage.setItem('language', newLang);
     i18n.changeLanguage(newLang);
   };
 
